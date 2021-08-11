@@ -1,0 +1,143 @@
+{
+  "name": "3-electron-react",
+  "version": "0.1.0",
+  "main": "main.js",
+  "description": "使用七牛云平台，开发的线上 Markdown 编辑器",
+  "author": {
+    "name": "ljf",
+    "email": "939139419@qq.com"
+  },
+  "repository": "https://baidu.com",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^5.0.2",
+    "electron-store": "^8.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "onlyEle": "nodemon --watch main.js --watch src/menuTemplate.js --exec \"electron .\"",
+    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\" ",
+    "buildMain": "webpack",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "release": "cross-env GH_TOKEN=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 electron-builder",
+    "prepack": "npm run buildMain",
+    "predist": "npm run build && npm run buildMain",
+    "prerelease": "npm run build && npm run buildMain"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "cloudDoc",
+    "productName": "七牛云文档",
+    "copyright": "Copyright © 2021 ${author}",
+    "extends": null,
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "settings/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "extraMetadata": {
+      "main": "./build/main.js"
+    },
+    "publish": [
+      "github"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "dmg": {
+      "background": "assets/appdmg.png",
+      "icon": "assets/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "win": {
+      "target": [
+        "msi",
+        "nsis"
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-Web-Setup-${version}.${ext}",
+      "publisherName": "ljf"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": false
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
+    "classnames": "^2.3.1",
+    "concurrently": "^6.2.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "easymde": "^2.15.0",
+    "electron": "^13.1.7",
+    "electron-builder": "^22.11.7",
+    "electron-is-dev": "^2.0.0",
+    "electron-updater": "^4.3.9",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.12",
+    "qiniu": "^7.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react-simplemde-editor": "^5.0.1",
+    "uuid": "^8.3.2",
+    "wait-on": "^6.0.0",
+    "web-vitals": "^1.0.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
