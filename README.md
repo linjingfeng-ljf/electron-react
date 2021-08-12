@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+## 使用 Electron + React Hooks + 七牛云 完成一个云同步 Markdown 笔记本
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1、使用代码前必看！！
 
-## Available Scripts
+**最后几节课的 “自动更新” 功能，需要依赖 GitHub 平台，没做**
 
-In the project directory, you can run:
+涉及 3 个文件：package.json 和 main.js 和 dev-app-update.yml
+注释了相关的代码（特别是 main.js ）
 
-### `yarn start`
+**存放文件的本地路径**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+C:\Users\Administrator\AppData\Roaming\3-electron-react
+C:\Users\Administrator\Documents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 2、应用程序使用指南
 
-### `yarn test`
+先在七牛云平台，创建一个存储空间，拿到 3 个参数：Access Key 和 Secret Key 和 Bucket（存储空间的名称）
+左上角原生菜单，“文件” 和 “云同步” 才有对应的业务功能（其它功能都是系统默认的）
+想要实现云同步，“设置” 子窗口的 3 个七牛云参数必填，并且需要打钩 “云同步” 的 “自动同步” 功能
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3、环境参数
 
-### `yarn build`
+Node 版本 > 10.0.0
+Npm 版本 > 6.0.0
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4、常用命令
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+需要**安装依赖**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `yarn eject`
+本地启动**开发环境**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm run dev
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+打包为**应用程序**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run dist
+```

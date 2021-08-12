@@ -3,7 +3,7 @@
  * @author ljf
  */
 
-const { app, BrowserWindow, Menu, ipcMain, dialog, autoUpdater } = require('electron') // electron 模块
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require('electron') // electron 模块
 // const { autoUpdater } = require('electron-updater') // electron 自动更新
 const isDev = require('electron-is-dev') // 判断 electron 开发环境还是生产环境
 const Store = require('electron-store') // electron 持久化数据保存

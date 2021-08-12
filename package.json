@@ -7,7 +7,7 @@
     "name": "ljf",
     "email": "939139419@qq.com"
   },
-  "repository": "https://baidu.com",
+  "repository": "https://github.com/linjingfeng-ljf/electron-react.git",
   "private": true,
   "dependencies": {
     "bootstrap": "^5.0.2",
@@ -24,7 +24,7 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "release": "cross-env GH_TOKEN=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 electron-builder",
-    "prepack": "npm run buildMain",
+    "prepack": "npm run build && npm run buildMain",
     "predist": "npm run build && npm run buildMain",
     "prerelease": "npm run build && npm run buildMain"
   },
