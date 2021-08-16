@@ -16,8 +16,18 @@ module.exports = {
 
   plugins: [
     new CopyWebpackPlugin({
-      // 将当前的文件夹 ./settings ，拷贝到 ./build/settings
-      patterns: [{ from: path.join(__dirname, './settings'), to: 'settings' }]
+      patterns: [
+        // 将当前的文件夹 ./settings ，拷贝到 ./build/settings
+        // 弹出的 “设置” 子窗口，需要用到
+        { from: path.join(__dirname, './settings'), to: 'settings' }
+
+        // 将当前的文件夹 ./node_modules 的 bootstrap 样式库 ，拷贝到 ./build/node_modules
+        // 上面的 “设置” 子窗口，它的 .html 文件调用了 node_modules 的 bootstrap 样式库
+        // {
+        //   from: path.join(__dirname, './node_modules/bootstrap/dist/css/bootstrap.min.css'),
+        //   to: 'node_modules/bootstrap/dist/css/bootstrap.min.css'
+        // }
+      ]
     })
   ]
 }

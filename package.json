@@ -20,7 +20,7 @@
     "eject": "react-scripts eject",
     "onlyEle": "nodemon --watch main.js --watch src/menuTemplate.js --exec \"electron .\"",
     "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\" ",
-    "buildMain": "webpack",
+    "buildMain": "webpack --mode production",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "release": "cross-env GH_TOKEN=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 electron-builder",

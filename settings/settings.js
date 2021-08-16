@@ -4,24 +4,10 @@
  */
 
 const { remote, ipcRenderer } = require('electron') // remote 渲染进程直接调用主进程的api ，ipcRenderer 主进程与渲染进程的通讯
-// const isDev = require('electron-is-dev') // 判断 electron 开发环境还是生产环境
 const Store = require('electron-store') // electron 持久化数据保存
 const settingsStore = new Store({ name: 'Settings' }) // electron 存放真实的文件的本地目录路径和一些七牛云的配置参数keyValue ，统一放在 Settings.json 文件（C:\Users\Administrator\AppData\Roaming\3-electron-react\settings.json）（与 App.js 和 main.js 的实例共用）
 // 使用 Store 模块，必须在主进程 main.js 中添加代码：Store.initRenderer()
 const qiniuConfigArr = ['#savedFileLocation', '#accessKey', '#secretKey', '#bucketName']
-
-// 根据开发环境还是生产环境，动态加载 bootstrap 样式表
-const newElement = document.createElement('link')
-newElement.setAttribute('rel', 'stylesheet')
-// if (isDev) {
-//   console.log('开发')
-//   newElement.setAttribute('href', '../node_modules/bootstrap/dist/css/bootstrap.min.css')
-// } else {
-//   console.log('生产')
-//   newElement.setAttribute('href', '../../node_modules/bootstrap/dist/css/bootstrap.min.css')
-// }
-newElement.setAttribute('href', '../node_modules/bootstrap/dist/css/bootstrap.min.css')
-document.head.appendChild(newElement)
 
 // 封装 获取dom节点的快捷方式
 const $ = (selector) => {
